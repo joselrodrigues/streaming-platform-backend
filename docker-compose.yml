@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: ./docker/go/Dockerfile
+    container_name: stream-api
+    ports:
+      - "80:3000"
+    networks:
+      - backend
+    volumes:
+      - .:/usr/src/app
+networks:
+  backend:
+    driver: bridge
