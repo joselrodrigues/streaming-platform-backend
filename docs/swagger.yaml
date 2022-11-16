@@ -1,0 +1,44 @@
+basePath: /
+host: localhost
+info:
+  contact:
+    email: fiber@swagger.io
+    name: API Support
+  description: Stream API
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Stream API
+  version: "1.0"
+paths:
+  /{source}/{name}/{id}:
+    get:
+      description: get the video by source, name and id
+      parameters:
+      - description: Video Source
+        in: path
+        name: source
+        required: true
+        type: string
+      - description: Video Name
+        in: path
+        name: name
+        required: true
+        type: string
+      - description: Video Number
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/octet-stream
+      responses:
+        "200":
+          description: OK
+        "500":
+          description: Internal Server Error
+      summary: Show an account
+      tags:
+      - stream
+swagger: "2.0"

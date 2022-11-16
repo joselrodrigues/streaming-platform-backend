@@ -18,7 +18,7 @@ func StreamService(c *fiber.Ctx) error {
 	file, err := os.Open(string(video))
 	if err != nil {
 		log.Error().Err(err).Msg("")
-		return fiber.ErrInternalServerError
+		return err
 	}
 
 	defer file.Close()
@@ -26,7 +26,7 @@ func StreamService(c *fiber.Ctx) error {
 	fi, err := file.Stat()
 	if err != nil {
 		log.Error().Err(err).Msg("")
-		return fiber.ErrInternalServerError
+		return err
 	}
 
 	fileSize := int(fi.Size())

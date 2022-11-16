@@ -6,4 +6,5 @@ import (
 
 func Setup(app *fiber.App) {
 	StreamRoutes(app)
+	Swagger(app)
 }
