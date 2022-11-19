@@ -5,7 +5,6 @@ import (
 	logger "stream/log"
 	routes "stream/routes"
 
-	"github.com/gofiber/fiber/v2"
 	"github.com/rs/zerolog/log"
 )
 
@@ -17,12 +16,12 @@ import (
 // @contact.email fiber@swagger.io
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
-// @host localhost
+// @host localhost:4000
 // @BasePath /
 func main() {
-	app := fiber.New()
 	logger.Setup()
-	routes.Setup(app)
+
+	app := routes.Setup()
 
 	err := app.Listen(":4000")
 	if err != nil {
